@@ -2,36 +2,24 @@
 define('TEMPLATES_DIR', 'templates/');
 define('LAYOUTS_DIR', 'layouts/');
 
+include 'functions/functions.php';
+//Определяем на какую страницу зашли
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 } else {
     $page = 'index';
 }
-
-echo render($page, [
-    'name' => 'Ivan',
-    'count' => 2
-]);
-
-
-function render($page, $params = []) {
-    return renderTemplate(LAYOUTS_DIR . 'main', [
-        'menu' => renderTemplate('menu', $params),
-        'content' => renderTemplate($page, $params)
-    ]);
+//Стандратные параметры, которые есть на всех страницах
+$params = [
+    'count' => 2,
+];
+//Определение пула параметров зависящего от страницы
+switch ($page) {
+    case 'index':
+        $params['name'] = 'Valera';
+    case 'catalog':
+        $params['catalog'] = getCatalog();
 }
 
+echo render($page, $params);
 
-function renderTemplate($page, $params = [])
-{
-    ob_start();
-//    foreach ($params as $key => $value) {
-//        $$key = $value;
-//    }
-    extract($params);
-    $fileName = TEMPLATES_DIR . $page . ".php";
-    if (file_exists($fileName)) {
-        include $fileName;
-    }
-    return ob_get_clean();
-}
