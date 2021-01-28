@@ -12,6 +12,7 @@ if (isset($_GET['page'])) {
 //Стандратные параметры, которые есть на всех страницах
 $params = [
     'count' => 2,
+    'menuList' => getMenu($arrayMenu)
 ];
 //Определение пула параметров зависящего от страницы
 switch ($page) {
@@ -19,6 +20,8 @@ switch ($page) {
         $params['name'] = 'Valera';
     case 'catalog':
         $params['catalog'] = getCatalog();
+    case 'about':
+        $params['about'] = 'Страница О компании';
 }
 
 echo render($page, $params);

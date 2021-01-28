@@ -1,3 +1,11 @@
-<a href="/">Главная</a>
-<a href="/?page=catalog">Каталог</a>
-<a href="/">Корзина (<?=$count?>)</a><br>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <?=$menuList?>
+</body>
+</html>
