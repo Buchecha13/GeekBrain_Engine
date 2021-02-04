@@ -7,8 +7,12 @@
     </form>
     <p><?= $currentStatus ?></p>
     <div class="gallery">
-        <?php foreach ($gallery as $image): ?>
-            <a class="photo" rel="gallery" href="gallery_img/big/<?= $image ?>"><img alt="img-1" src="gallery_img/small/<?= $image ?>" width="150" height="100"/></a>
+        <?php foreach ($gallery as $item): ?>
+        <div class="img">
+            <a class="photo" rel="gallery" href="/image/<?= $item['id'] ?>"><img alt="img-1" src="/gallery_img/small/<?= $item['name'] ?>" width="150" height="100"/></a><br>
+            <b>(<?=$item['views']?>)</b>
+        </div>
+
         <?php endforeach; ?>
     </div>
 

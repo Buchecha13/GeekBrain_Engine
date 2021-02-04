@@ -3,11 +3,10 @@ $arrayMenu = [
     [
         'title' => 'Главная',
         'href' => '/',
-        'color' => 'red'
     ],
     [
         'title' => 'Каталог',
-        'href' => '/?page=catalog',
+        'href' => '/catalog',
         'subitems' => [
             [
                 'title' => 'Для дома',
@@ -35,12 +34,16 @@ $arrayMenu = [
     ],
     [
         'title' => 'О компании',
-        'href' => '/?page=about',
+        'href' => '/about',
     ],
     [
         'title' => 'Галерея',
-        'href' => '/?page=gallery',
-    ]
+        'href' => '/gallery',
+    ],
+    [
+    'title' => 'Новости',
+    'href' => '/news',
+]
 ];
 
 function getMenu($arrayMenu)
