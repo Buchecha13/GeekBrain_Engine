@@ -22,34 +22,38 @@ switch ($page) {
     case 'index':
         $params['name'] = 'Клиент';
         break;
+
     case 'catalog':
         $params['catalog'] = getCatalog();
         break;
+
     case 'gallery':
-        $params['allowedTypes'] = [
-            'image/jpg',
-            'image/jpeg',
-            'image/png',
-        ];
-        $params['statuses'] = [
+        $params['gallery'] = getGallery();
+        if(!empty($_FILES)) {
+            uploadImage();
+        }
+        $statuses = [
             'ok' => 'Файл загружен',
             'typeErr' => 'Неверный формат файла',
             'sizeErr' => 'Максимальный размер файла - 5 Мб'
         ];
-        $params['gallery'] = getGallery();
-        $params['currentStatus'] = uploadImage();
+        $params['currentStatus'] = $statuses[$_GET['status']];
         break;
+
     case 'image':
         $id = explode('/', $_SERVER['REQUEST_URI'])[2];
         updateViews($id);
         $params['file'] = getOneFile($id);
         break;
+
     case 'about':
         $params['about'] = 'Страница О компании';
         break;
+
     case 'news':
         $params['news'] = getNews();
         break;
+
     case 'onenews':
         $id = explode('/', $_SERVER['REQUEST_URI'])[2];
         $params['news'] = getOneNews($id);

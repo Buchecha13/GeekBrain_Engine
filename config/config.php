@@ -8,14 +8,15 @@ define('HOST', 'localhost');
 define('USER', 'admin_bv');
 define('PASS', '123123');
 define('DB', 'engine');
+define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT']);
 
 
-include $_SERVER['DOCUMENT_ROOT'] . '/../modules/db.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/../modules/functions.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/../modules/catalog.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/../modules/gallery.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/../modules/news.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/../modules/log.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/../modules/menu.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/../modules/uploadImage.php';
+include dirname(ROOT_DIR) . '/modules/db.php';
+include dirname(ROOT_DIR) . '/modules/functions.php';
+include dirname(ROOT_DIR) . '/modules/catalog.php';
+include dirname(ROOT_DIR) . '/modules/gallery.php';
+include dirname(ROOT_DIR) . '/modules/news.php';
+include dirname(ROOT_DIR) . '/modules/log.php';
+include dirname(ROOT_DIR) . '/modules/menu.php';
+include dirname(ROOT_DIR) . '/modules/uploadImage.php';
 
