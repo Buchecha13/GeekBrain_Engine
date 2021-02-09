@@ -3,7 +3,7 @@
     <form method="post" enctype="multipart/form-data">
         <label for="upload-photo" class="submit"> Выбрать фото </label>
         <input id="upload-photo" type="file" name="uploadedImage">
-        <input type="submit" value="Загрузить">
+        <input class="send-btn" type="submit" value="Загрузить">
     </form>
     <p><?= $currentStatus ?></p>
     <div class="gallery">

@@ -1,9 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/../modules/classSimpleImage.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/../modules/db.php';
-
-
+include_once ROOT_DIR . '/modules/gallery/classSimpleImage.php';
 
 function getGallery() {
 //    if (!empty(scandir('gallery_img/small/'))) {
