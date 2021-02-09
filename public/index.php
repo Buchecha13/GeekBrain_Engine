@@ -1,6 +1,6 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . "/../config/config.php ";
+include_once dirname($_SERVER['DOCUMENT_ROOT']) . "/config/config.php ";
 
 $urlArray = explode('/', $_SERVER['REQUEST_URI']);
 
@@ -29,7 +29,7 @@ switch ($page) {
 
     case 'gallery':
         $params['gallery'] = getGallery();
-        if(!empty($_FILES)) {
+        if (!empty($_FILES)) {
             uploadImage();
         }
         $statuses = [
