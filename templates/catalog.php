@@ -7,21 +7,17 @@
 <body>
 <h1>Каталог</h1>
 
-<table cellpadding="2" cellspacing="2" border="1">
-    <tr>
-        <td>
-            <b>Товар</b>
-        </td>
-        <td>
-            <b>Цена (в рублях)</b>
-        </td>
-    </tr>
-    <?foreach ($catalog as $product): ?>
-    <tr>
-        <td><?=$product['name']?></td>
-        <td><?=$product['price']?></td>
-    </tr>
-    <?endforeach;?>
-</table>
+<div class="products">
+    <?php foreach ($products as $product): ?>
+        <div class="products__item">
+            <h3><a href="/product/<?=$product['name']?>"><?= $product['name'] ?></a></h3>
+            <img height="300px" src="<?= PRODUCT_IMG . $product['image'] ?>" alt="<?= $product['image'] ?>">
+            <p>Цена: <span><?=$product['price']?></span> рублей </p>
+            <button>Купить</button>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+
 </body>
 </html>

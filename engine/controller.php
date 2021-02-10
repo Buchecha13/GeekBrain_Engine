@@ -41,10 +41,6 @@ function prepareVariables($page, $action)
             $params['name'] = 'Клиент';
             break;
 
-        case 'catalog':
-            $params['catalog'] = getCatalog();
-            break;
-
         case 'gallery':
             $params['gallery'] = getGallery();
             if (!empty($_FILES)) {
@@ -101,6 +97,14 @@ function prepareVariables($page, $action)
             $params['feedbacks'] = getFeedbacks();
             $params['message'] = getFeedbackStatus();
 
+            break;
+
+        case 'catalog':
+            $params['products'] = getCatalog();
+            break;
+        case 'product':
+            $name = explode('/', $_SERVER['REQUEST_URI'])[2];
+            $params['product'] = getProduct($name);
             break;
     }
 

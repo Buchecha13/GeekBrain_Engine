@@ -3,6 +3,7 @@
 define('TEMPLATES_DIR', $_SERVER['DOCUMENT_ROOT'] . '/../templates/');
 define('LAYOUTS_DIR', 'layouts/');
 define('ROOT_DIR', dirname($_SERVER['DOCUMENT_ROOT']));
+define('PRODUCT_IMG', 'products_images/');
 
 /* DB Config */
 define('HOST', 'localhost');
