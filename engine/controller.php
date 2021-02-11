@@ -2,13 +2,14 @@
 
 function prepareVariables($page, $action)
 {
+    $count = getCartCount();
     $arrayMenu = [
         [
             'title' => 'Главная',
             'href' => '/',
         ],
         [
-            'title' => 'Каталог',
+            'title' => "Каталог",
             'href' => '/catalog',
 
         ],
@@ -27,11 +28,14 @@ function prepareVariables($page, $action)
         [
             'title' => 'Новости',
             'href' => '/news',
+        ],
+        [
+            'title' => "Корзина($count)",
+            'href' => '/cart',
         ]
     ];
     //Стандратные параметры, которые есть на всех страницах
     $params = [
-        'count' => 2,
         'menuList' => getMenu($arrayMenu)
     ];
 
@@ -82,11 +86,21 @@ function prepareVariables($page, $action)
             break;
 
         case 'catalog':
+            doCatalogAction($action);
+            $params['status'] = $action;
             $params['products'] = getCatalog();
             break;
         case 'product':
-            $name = explode('/', $_SERVER['REQUEST_URI'])[2];
+            doProductAction($action);
+            $name = $_GET['name'];
             $params['product'] = getProduct($name);
+            break;
+        case 'cart':
+            doCartAction($action);
+            $params['cart'] = getCart();
+            $params['status'] = getCartStatus();
+            $params['totalPrice'] = getTotalPrice();
+            $productId = $_GET['id'];
             break;
     }
 

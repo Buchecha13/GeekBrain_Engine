@@ -17,6 +17,8 @@ include ROOT_DIR . '/engine/db.php';
 include ROOT_DIR . '/engine/controller.php';
 include ROOT_DIR . '/engine/functions.php';
 include ROOT_DIR . '/modules/catalog.php';
+include ROOT_DIR . '/modules/product.php';
+include ROOT_DIR . '/modules/cart.php';
 include ROOT_DIR . '/modules/news.php';
 include ROOT_DIR . '/modules/menu.php';
 include ROOT_DIR . '/modules/feedbacks.php';

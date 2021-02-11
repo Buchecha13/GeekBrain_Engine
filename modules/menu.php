@@ -3,15 +3,15 @@
 
 function getMenu($arrayMenu)
 {
-    $menuList = "<ul>";
+    $menuList = "<nav class='cl-effect-14 menu-box'>";
     foreach ($arrayMenu as $menuItem) {
-        $menuList .= "<li><a href=\"{$menuItem['href']}\">{$menuItem['title']}</a>";
+        $menuList .= "<a class='menu-link' href=\"{$menuItem['href']}\">{$menuItem['title']}</a>";
         if (isset($menuItem['subitems'])) {
             $menuList .= getMenu($menuItem['subitems']);
         }
-        $menuList .= "</li>";
     }
-    $menuList .= "</ul>";
+    $menuList .= "</nav>";
 
     return $menuList;
 }
+

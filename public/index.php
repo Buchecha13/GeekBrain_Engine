@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once dirname($_SERVER['DOCUMENT_ROOT']) . "/config/config.php ";
 
@@ -15,6 +16,5 @@ $action = $urlArray[2];
 $params = prepareVariables($page, $action);
 
 echo render($page, $params);
-
 
 

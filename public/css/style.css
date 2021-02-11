@@ -91,3 +91,14 @@ input:hover {
     max-width: 500px;
 }
 
+.container {
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+.menu-box {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
