@@ -7,9 +7,9 @@
 <body>
     <h1>Отзывы</h1>
     <form action="/feedbacks/<?=$action?>" method="post">
-        <input hidden type="text" name="id" value="<?= $feedback['id'] ?>">
-        <input type="text" name="name" placeholder="Ваше имя" value="<?= $feedback['name'] ?>">
-        <input type="text" name="feedback" placeholder="Ваш отзыв" value="<?= $feedback['feedback'] ?>">
+        <input hidden type="text" name="id" value="<?= $feedbackId ?>">
+        <input type="text" name="name" placeholder="Ваше имя" value="<?= $feedbackName ?>">
+        <input type="text" name="feedback" placeholder="Ваш отзыв" value="<?= $feedbackText ?>">
         <input class="send-btn" type="submit" value="<?=$btnText?>">
     </form>
 

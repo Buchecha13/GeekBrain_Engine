@@ -22,7 +22,7 @@ function prepareVariables($page, $action)
         ],
         [
             'title' => 'Отзывы',
-            'href' => '/feedbacks/add',
+            'href' => '/feedbacks',
         ],
         [
             'title' => 'Новости',
@@ -75,25 +75,7 @@ function prepareVariables($page, $action)
 
         case 'feedbacks':
 
-            if ($action === 'add') {
-                $params['feedback'] = [];
-                $params['btnText'] = 'Добавить отзыв';
-                $params['action'] = 'add';
-                addFeedback();
-            }
-            if ($action === 'edit') {
-                $params['feedback'] = editFeedback();
-                $params['btnText'] = 'Изменить отзыв';
-                $params['action'] = 'update';
-            }
-            if ($action === 'update') {
-                updateFeedback();
-                $params['btnText'] = 'Добавить отзыв';
-            }
-            if ($action === 'delete') {
-                deleteFeedback();
-                $params['btnText'] = 'Добавить отзыв';
-            }
+            doFeedbackAction($params, $action);
             $params['feedbacks'] = getFeedbacks();
             $params['message'] = getFeedbackStatus();
 

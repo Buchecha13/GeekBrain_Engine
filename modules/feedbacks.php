@@ -39,7 +39,7 @@ function addFeedback()
 
         mysqli_query(getDb(), $sql);
 
-        header("Location: /feedbacks/add/?message=add");
+        header("Location: /feedbacks/?message=add");
         exit();
     }
 }
@@ -60,7 +60,7 @@ function updateFeedback()
 
     mysqli_query(getDb(), $sql);
 
-    header("Location: /feedbacks/add/?message=update");
+    header("Location: /feedbacks/?message=update");
     exit();
 }
 
@@ -71,6 +71,32 @@ function deleteFeedback()
 
     mysqli_query(getDb(), $sql);
 
-    header("Location: /feedbacks/add/?message=delete");
+    header("Location: /feedbacks/?message=delete");
     exit();
+}
+
+function doFeedbackAction (&$params, $action) {
+    $params['feedbackText'] = '';
+    $params['feedbackId'] = '';
+    $params['feedbackName'] = '';
+    $params['btnText'] = 'Добавить отзыв';
+    $params['action'] = 'add';
+
+    if ($action === 'add') {
+        addFeedback();
+    }
+    if ($action === 'edit') {
+
+        $params['feedbackText'] = editFeedback()['feedback'];
+        $params['feedbackId'] = editFeedback()['id'];
+        $params['feedbackName'] = editFeedback()['name'];
+        $params['btnText'] = 'Изменить отзыв';
+        $params['action'] = 'update';
+    }
+    if ($action === 'update') {
+        updateFeedback();
+    }
+    if ($action === 'delete') {
+        deleteFeedback();
+    }
 }
