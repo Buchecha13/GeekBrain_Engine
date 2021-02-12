@@ -102,3 +102,16 @@ input:hover {
     display: flex;
     justify-content: space-between;
 }
+
+.auth-form {
+    margin-top: 15px;
+}
+
+.auth-form input {
+    border: 1px solid #ffffff;
+    width: 200px;
+    padding: 5px;
+    background-color: transparent;
+    font-size: 18px;
+    margin-right: 5px;
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 10 2021 г., 17:47
+-- Время создания: Фев 11 2021 г., 20:44
 -- Версия сервера: 8.0.15
 -- Версия PHP: 7.3.9
 
@@ -25,6 +25,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
+  `product_name` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `cart`
+--
+
+INSERT INTO `cart` (`id`, `session_id`, `product_name`) VALUES
+(20, '07hthtoqhp5kesc1ci0en66ll6q0ai2c', 'Samsung');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `feedbacks`
 --
 
@@ -41,7 +60,8 @@ CREATE TABLE `feedbacks` (
 INSERT INTO `feedbacks` (`id`, `name`, `feedback`) VALUES
 (1, 'admin', 'test'),
 (2, 'user', 'user_test'),
-(9, 'test', 'asdqw');
+(9, 'test', 'asdqw23'),
+(12, '123', 'qsdsad');
 
 -- --------------------------------------------------------
 
@@ -63,9 +83,9 @@ CREATE TABLE `gallery` (
 INSERT INTO `gallery` (`id`, `name`, `file_size`, `views`) VALUES
 (72, '01.jpg', 5148, 0),
 (73, '02.jpg', 3658, 3),
-(74, '03.jpg', 3816, 23),
+(74, '03.jpg', 3816, 24),
 (75, '04.jpg', 3752, 0),
-(76, '05.jpg', 6629, 0),
+(76, '05.jpg', 6629, 1),
 (77, '06.jpg', 4382, 0),
 (78, '07.jpg', 5251, 7),
 (79, '08.jpg', 5497, 0),
@@ -137,6 +157,12 @@ INSERT INTO `products` (`id`, `name`, `image`, `price`, `descr`) VALUES
 --
 
 --
+-- Индексы таблицы `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `feedbacks`
 --
 ALTER TABLE `feedbacks`
@@ -165,10 +191,16 @@ ALTER TABLE `products`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
 -- AUTO_INCREMENT для таблицы `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `gallery`

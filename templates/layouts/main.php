@@ -11,6 +11,16 @@
 </head>
 <body>
 <div class="container">
+    <?php if ($auth): ?>
+    <p>Добро пожаловать, <span><?=$name?></span></p>
+    <?php else : ?>
+    <form class="auth-form" method="post">
+        <input type="text" name="name" placeholder="Введите логин">
+        <input type="password" name="pass" placeholder="Введите пароль">
+        <input type="submit" value="Войти">
+    </form>
+    <?php endif ?>
+
     <?= $menu ?>
     <?= $content ?>
 </div>
