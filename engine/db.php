@@ -16,3 +16,8 @@ function getAssocResult($sql) {
     }
     return $array_result;
 }
+
+function executeSql($sql) {
+    mysqli_query(getDb(), $sql);
+    return mysqli_affected_rows(getDb());
+}

@@ -16,14 +16,16 @@ define('DB', 'engine');
 include ROOT_DIR . '/engine/db.php';
 include ROOT_DIR . '/engine/controller.php';
 include ROOT_DIR . '/engine/functions.php';
-include ROOT_DIR . '/modules/catalog.php';
-include ROOT_DIR . '/modules/product.php';
-include ROOT_DIR . '/modules/cart.php';
-include ROOT_DIR . '/modules/news.php';
-include ROOT_DIR . '/modules/menu.php';
-include ROOT_DIR . '/modules/feedbacks.php';
-include ROOT_DIR . '/modules/gallery/uploadImage.php';
-include ROOT_DIR . '/modules/gallery/gallery.php';
+include ROOT_DIR . '/models/auth.php';
+include ROOT_DIR . '/models/catalog.php';
+include ROOT_DIR . '/models/product.php';
+include ROOT_DIR . '/models/cart.php';
+include ROOT_DIR . '/models/news.php';
+include ROOT_DIR . '/models/menu.php';
+include ROOT_DIR . '/models/feedbacks.php';
+include ROOT_DIR . '/models/admin.php';
+include ROOT_DIR . '/models/gallery/uploadImage.php';
+include ROOT_DIR . '/models/gallery/gallery.php';
 
 
 

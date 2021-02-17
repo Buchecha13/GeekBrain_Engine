@@ -32,12 +32,12 @@ function getFeedbackStatus() {
 
 function addFeedback()
 {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['name']) && !empty($_POST['feedback'])) {
         $name = strip_tags(htmlspecialchars(mysqli_real_escape_string(getDb(), $_POST['name'])));
         $feedback = strip_tags(htmlspecialchars(mysqli_real_escape_string(getDb(), $_POST['feedback'])));
         $sql = "INSERT INTO `feedbacks`(`name`, `feedback`) VALUES ('{$name}', '{$feedback}')";
 
-        mysqli_query(getDb(), $sql);
+        executeSql($sql);
 
         header("Location: /feedbacks/?message=add");
         exit();
@@ -58,7 +58,7 @@ function updateFeedback()
     $feedback = strip_tags(htmlspecialchars(mysqli_real_escape_string(getDb(), $_POST['feedback'])));
     $sql = "UPDATE `feedbacks` SET `name`='{$name}',`feedback`='{$feedback}' WHERE id ='{$id}'";
 
-    mysqli_query(getDb(), $sql);
+    executeSql($sql);
 
     header("Location: /feedbacks/?message=update");
     exit();
@@ -69,7 +69,7 @@ function deleteFeedback()
     $id = explode('/', $_SERVER['REQUEST_URI'])[3];
     $sql = "DELETE FROM `feedbacks` WHERE `id`= '{$id}'";
 
-    mysqli_query(getDb(), $sql);
+    executeSql($sql);
 
     header("Location: /feedbacks/?message=delete");
     exit();

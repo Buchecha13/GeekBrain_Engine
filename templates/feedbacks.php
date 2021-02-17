@@ -1,10 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
     <h1>Отзывы</h1>
     <form action="/feedbacks/<?=$action?>" method="post">
         <input hidden type="text" name="id" value="<?= $feedbackId ?>">
@@ -23,5 +16,3 @@
             <a href="/feedbacks/delete/<?= $item['id'] ?>">Удалить отзыв</a><br>
         <?php endforeach; ?>
     </div>
-</body>
-</html>

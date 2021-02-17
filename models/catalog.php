@@ -14,8 +14,11 @@ function getProduct($name)
 function buyProduct() {
     $sessionId = session_id();
     $productName = strip_tags(htmlspecialchars(mysqli_real_escape_string(getDb(), $_GET['name'])));
-    $sql = "INSERT INTO `cart`(`session_id`, `product_name`) VALUES ('{$sessionId}', '{$productName}')";
-    return mysqli_query(getDb(), $sql);
+    $sql = "SELECT price FROM products WHERE name = '{$productName}'";
+    $productPrice = getAssocResult($sql)[0]['price'];
+
+    $sql = "INSERT INTO `cart`(`session_id`, `product_name`, `product_price`) VALUES ('{$sessionId}', '{$productName}', '{$productPrice}')";
+    return executeSql($sql);
 }
 
 function doCatalogAction($action) {

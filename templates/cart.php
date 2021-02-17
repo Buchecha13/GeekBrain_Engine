@@ -1,13 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
 <div class="cart">
-    <?php if ($status == false): ?>
-        <p>Корзина пуста</p>
+    <?php if (isset($_GET['message'])): ?>
+        <p><?=$message?></p>
     <?php else : ?>
     <div class="total-price">
         <h3>Общая сумма покупки: <span style="font-weight: normal"><?=$totalPrice?></span> рублей</h3>
@@ -21,7 +14,11 @@
             </div>
             <hr>
         <?php endforeach; ?>
+    <form method="post" class="cart-form">
+        <input hidden name="cart-form">
+        <input name="name" type="text" placeholder="Ваше имя">
+        <input name="phone" type="text" placeholder="Ваш номер телефона">
+        <input type="submit" value="Заказать">
+    </form>
     <?php endif; ?>
 </div>
-</body>
-</html>

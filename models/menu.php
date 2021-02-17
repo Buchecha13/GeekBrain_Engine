@@ -14,4 +14,3 @@ function getMenu($arrayMenu)
 
     return $menuList;
 }
-

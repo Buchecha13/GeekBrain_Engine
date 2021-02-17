@@ -1,6 +1,6 @@
 <?php
 
-include_once ROOT_DIR . '/modules/gallery/classSimpleImage.php';
+include_once ROOT_DIR . '/models/gallery/classSimpleImage.php';
 
 function getGallery() {
 //    if (!empty(scandir('gallery_img/small/'))) {

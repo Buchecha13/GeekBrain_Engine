@@ -8,14 +8,21 @@ function uploadImage()
             'image/png',
         ];
         $path = $_SERVER['DOCUMENT_ROOT'] . '/gallery_img/big/' . $_FILES['uploadedImage']['name'];
-        if (!in_array($_FILES['uploadedImage']['type'], $allowedTypes)) {
+        if ($_FILES['uploadedImage']['error'] == 4) {
+            header("Location: /gallery/?status=emptyFILES");
+            exit();
+        }
+        elseif
+            (!in_array($_FILES['uploadedImage']['type'], $allowedTypes)){
             header("Location: /gallery/?status=typeErr");
             exit();
-        } elseif ($_FILES['uploadedImage']['size'] > 1024 * 1024 * 5) {
+        } elseif
+            ($_FILES['uploadedImage']['size'] > 1024 * 1024 * 5){
             header("Location: /gallery/?status=sizeErr");
             exit();
 
-        } elseif (move_uploaded_file($_FILES['uploadedImage']['tmp_name'], $path)) {
+        } elseif
+            (move_uploaded_file($_FILES['uploadedImage']['tmp_name'], $path)){
             mysqli_query(getDb(), "INSERT INTO `gallery`(`name`, `file_size`) VALUES ('{$_FILES['uploadedImage']['name']}',{$_FILES['uploadedImage']['size']})");
             $image = new SimpleImage();
             $image->load($path);
@@ -24,5 +31,5 @@ function uploadImage()
             header("Location: /gallery/?status=ok");
             exit();
         }
-    }
+        }
 }

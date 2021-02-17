@@ -1,15 +1,16 @@
 <?php
 //Главный рендер шаблона
-function render($page, $params = [])
+function render($page, $params)
 {
     return renderTemplate(LAYOUTS_DIR . 'main', [
+        'auth' => renderTemplate('auth', $params),
         'menu' => renderTemplate('menu', $params),
         'content' => renderTemplate($page, $params)
     ]);
 }
 
 // Внутренний рендер подшаблона
-function renderTemplate($page, $params = [])
+function renderTemplate($page, $params)
 {
     ob_start();
     extract($params);
